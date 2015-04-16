@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Image Rollover and Counter </title>
+<meta charset="utf-8" />	
+<script type="text/javascript" src="jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="jquery-ui-1.10.4.custom.js"></script>	
+<script type="text/javascript">
+// Description///
+/*
+create 3 hyper links and Place a single default image on the web page 
+when the user does not hover over any of the links.
+when the users hovers over a link , change the default image to another 
+image that represent the link.Hovering each link should display a different image.
+
+when the user hovers over a link, use a variable to store the number of times 
+the user has hovered over any given link.
+
+Create a button to display the count and clear the filed.
+*/
+$(document).ready(
+   
+   function() 
+   {
+    var times=0;
+    $("#img1").mouseover(    
+        function()
+            {
+            $("#garden").removeClass();
+			$("#garden").attr("src","rose.jpg");
+			$("#garden").addClass($(this).attr("id"));		
+            times++;			
+            }     
+            );
+				   
+    $("#img1").mouseout(
+	    function()
+		   {
+		   $("#garden").removeClass();
+		   $("#garden").attr("src","garden.jpg");           	   
+		   }	
+	       );  
+		   
+		   
+    $("#img2").mouseover(
+	    function ()
+		   {
+		   $("#garden").removeClass();
+		   $("#garden").attr("src","tulips.jpg");
+		   $("#garden").addClass($(this).attr("id"));	
+           times++;		   
+		   }	
+	       );
+    $("#img2").mouseout(
+	    function ()
+		   {
+		   $("#garden").removeClass();
+		   $("#garden").attr("src","garden.jpg");		
+		   }	
+	       );
+	
+    $("#img3").mouseover(
+	    function ()
+		   {
+		   $("#garden").removeClass();
+		   $("#garden").attr("src","poppy.jpg");
+		   $("#garden").addClass($(this).attr("id"));	 
+           times++;		   
+		   }	
+	       );
+    $("#img3").mouseout(
+	    function ()
+		   {
+		   $("#garden").removeClass();
+		   $("#garden").attr("src","garden.jpg");		
+		   }	
+	       );	
+
+    
+
+    $("#count").click(
+		function() 
+		    {
+		    $("#Cvalue").html(times);
+			}
+		    );
+					
+	$("#reset").click(
+	    function()
+		    {
+		    times=0;
+		    $("#Cvalue").html(times);
+		    }	
+	        );	   
+   }
+);
+
+
+</script>
+</head>
+
+<body>
+<a href="#" id="img1">Rose</a> <br><br>
+<a href="#" id="img2">Tulips</a><br><br>
+<a href="#" id="img3">Poppies</a><br>
+<img src="garden.jpg" alt="garden image" id="garden" width="500" height="400">
+<br>
+<label><input type="button" id="count" value="Counter"/> </label> 
+<div id="Cvalue">0</div>
+<label><input type="button" id="reset" value="reset"/> </label> 
+</body>
+</html>
