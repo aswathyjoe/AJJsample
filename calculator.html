@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculator</title>
+<meta charset="utf-8"/>
+<script src="jquery-1.11.0.min.js"></script>
+<script >
+var inp="";
+var answer;
+// function to take the input from the button provided on the interface
+function number(temp)
+{
+inp =inp + temp;
+document.getElementById("input").value = inp;
+}
+
+// function to execute the arithmetic operations 
+function ExecuteOp(eq)
+{
+var result=eval(inp);
+document.getElementById("output").value=result;
+}
+// validation of text field: Keyboard entries are not allowed.
+function inputValidate(e) 
+{
+   return false;
+} 
+//clearing the text field after on button click
+function clearValues(defaultValue)
+{
+document.getElementById("input").value=defaultValue;
+document.getElementById("output").value=defaultValue;
+inp="";
+}
+////////////////////////////////////////////////////////////////////////////////
+</script>
+</head>
+
+<style>
+section
+    {
+				margin: 0 auto;
+				width: 550px;
+		}
+</style>
+
+<body>
+<section>
+<table  border=5 width=50 height=60 bgcolor="IndianRed" >
+ <tr>
+    <td>
+    <label> <input type="button" id="one" value="1" style="width: 70px" onclick="number(1)" /> </label>
+    </td>
+    <td>
+    <label> <input type="button" id="two" value="2" style="width: 70px" onclick="number(2)" /> </label>
+    </td>
+    <td>
+    <label> <input type="button" id="three" value="3" style="width: 70px" onclick="number(3)"/> </label>
+    </td>
+    <td>
+    <label> <input type="button" id="addition" value="+" style="width: 70px"  onclick="number('+')"/> </label>
+    </td>
+ </tr>
+ <tr>
+    <td>
+    <label> <input type="button" id="four" value="4" style="width: 70px" onclick="number(4)"/> </label>
+	</td>
+	<td>
+	<label> <input type="button" id="five" value="5" style="width: 70px" onclick="number(5)"/> </label>
+	</td>
+	<td>
+    <label> <input type="button" id="six" value="6" style="width: 70px" onclick="number(6)"/> </label>
+	</td>
+	<td>
+    <label> <input type="button" id="subtraction" value="-" style="width: 70px" onclick="number('-')"/> </label>
+	</td>
+ </tr>
+ <tr>
+    <td>
+    <label> <input type="button" id="seven" value="7" style="width: 70px" onclick="number(7)"/> </label>
+    </td>
+	<td>
+	<label> <input type="button" id="eight" value="8" style="width: 70px" onclick="number(8)"/> </label>
+	</td>
+	<td>
+    <label> <input type="button" id="nine" value="9" style="width: 70px" onclick="number(9)"/> </label>
+	</td>
+	<td>
+    <label> <input type="button" id="multiplication" value="*" style="width: 70px" onclick="number('*')"/> </label>
+	</td>
+ </tr>
+ <tr>
+    <td>
+    <label> <input type="button" id="clear" value="clear" style="width: 70px" onclick="clearValues(0)"/> </label>
+	</td>
+	<td>
+    <label> <input type="button" id="zero" value="0" style="width: 70px" onclick="number(0)"/> </label>
+	</td>
+	<td>
+    <label> <input type="button" id="equals" value="=" style="width: 70px" onclick="ExecuteOp()"/> </label>
+	</td>
+	<td>    
+	<label> <input type="button" id="division" value="/" style="width: 70px" onclick="number('/')"/> </label>
+	</td>
+ </tr>
+ <tr>
+    <td colspan=2>
+    <label><input type="text" id="input" value="0"  maxlength="20" onkeypress="return inputValidate(event)" style="width: 140px"/></label>
+	</td>
+	<td colspan=2>
+    <label><input type="text" id="output" value="0" maxlength="20" onkeypress="return inputValidate(event)" style="width: 140px"/></label>
+	</td>
+ </tr>
+</table>
+
+</section>
+</body>
+
+</html>
