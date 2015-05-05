@@ -6,38 +6,38 @@
 <script type="text/javascript" src="jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="jquery-ui-1.10.4.custom.js"></script>	
 <script type="text/javascript">
-// Description///
 /*
-create 3 hyper links and Place a single default image on the web page 
-when the user does not hover over any of the links.
-when the users hovers over a link , change the default image to another 
-image that represent the link.Hovering each link should display a different image.
-
+Author- Aswathy Josephine Joe
+email- aswathy.joe@gmail.com
+*****Description******
+create 3 hyper links and Place a single default image on the web page when the user does not hover over any of the links.
+when the users hovers over a link , change the default image to another image that represent the link.
+Hovering each link should display a different image.
 when the user hovers over a link, use a variable to store the number of times 
-the user has hovered over any given link.
-
-Create a button to display the count and clear the filed.
+the user has hovered over any given link.Create a button to display the count and clear the filed.
 */
 $(document).ready(
    
    function() 
    {
-    var times=0;
+    var times=0;                 //a global variable is declared to store the count.Variable will increment by 1 each time the user hovers over the link.
     $("#img1").mouseover(    
         function()
-            {
-            $("#garden").removeClass();
-			$("#garden").attr("src","rose.jpg");
-			$("#garden").addClass($(this).attr("id"));		
-            times++;			
+           {
+           $("#garden").removeClass();               //remove all classes.
+		   $("#garden").attr("src","rose.jpg");      //change the image using 2 arguments. first argument is the attribute and second argument is the value.
+			                                         //so the default picture garden.jpg will be replaced by rose.jpg.
+		   $("#garden").addClass($(this).attr("id"));//adding a class to the default image using the current mouse hovered image id.
+		                                             //but the original id of the default image wont be changed. 
+           times++;			                         //Variable is incremented by one.
             }     
             );
 				   
     $("#img1").mouseout(
 	    function()
 		   {
-		   $("#garden").removeClass();
-		   $("#garden").attr("src","garden.jpg");           	   
+		   $("#garden").removeClass();              //remove the added class with the mouse hovered image id .
+		   $("#garden").attr("src","garden.jpg");   // change the image to the default one.        	   
 		   }	
 	       );  
 		   
@@ -81,7 +81,7 @@ $(document).ready(
     $("#count").click(
 		function() 
 		    {
-		    $("#Cvalue").html(times);
+		    $("#Cvalue").html(times); //write down the value of the variable times in the div element. 
 			}
 		    );
 					
@@ -89,24 +89,36 @@ $(document).ready(
 	    function()
 		    {
 		    times=0;
-		    $("#Cvalue").html(times);
+		    $("#Cvalue").html(times); //reset the value of the global variable times to 0;
 		    }	
 	        );	   
    }
 );
 
-
 </script>
+<style type="text/css">
+.img1{ margin: 25px 50px 25px 100px; border-style: outset; border-color: Maroon; border-width: 10px;}
+.img2{ margin: 25px 50px 25px 100px; border-style: outset; border-color: MediumVioletRed; border-width: 10px;}
+.img3{ margin: 25px 50px 25px 100px; border-style: outset; border-color: Crimson; border-width: 10px;}
+div
+{
+    color: red;
+}
+
+</style>
+
 </head>
 
-<body>
-<a href="#" id="img1">Rose</a> <br><br>
-<a href="#" id="img2">Tulips</a><br><br>
-<a href="#" id="img3">Poppies</a><br>
-<img src="garden.jpg" alt="garden image" id="garden" width="500" height="400">
+<body background="back.jpg" >
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+<a href="#" id="img1" style="color: rgb(255,0,127)">Rose</a> &nbsp; &nbsp;
+<a href="#" id="img2" style="color: rgb(255,0,127)">Tulips</a> &nbsp; &nbsp;
+<a href="#" id="img3" style="color: rgb(255,0,127)">Poppies</a> 
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label><input type="button" id="count" value="Counter" style="background-color:rgb(153,0,76)"/> </label> &nbsp; &nbsp;
+<label><input type="button" id="reset" value="reset" style="background-color:rgb(153,0,76)"/> </label> &nbsp; &nbsp;
+<div id="Cvalue" style="display: inline" style="color:red">0</div>
 <br>
-<label><input type="button" id="count" value="Counter"/> </label> 
-<div id="Cvalue">0</div>
-<label><input type="button" id="reset" value="reset"/> </label> 
+<img src="garden.jpg" alt="garden image" id="garden"  width="800" height="550" style="margin: 25px 50px 25px 100px" border="1">
 </body>
 </html>
